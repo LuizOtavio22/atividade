@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char str[100];
+    int opcao;
+
+    printf("Digite uma string: ");
+    fgets(str, sizeof(str), stdin);
+    str[strcspn(str, "\n")] = '\0';
+
+    printf("Escolha a opção: \n");
+    printf("1 - Converter para maiúsculas\n");
+    printf("2 - Converter para minúsculas\n");
+    printf("Digite a opção (1 ou 2): ");
+    scanf("%d", &opcao);
+
+    if (opcao == 1) {
+        for (int i = 0; str[i] != '\0'; i++) {
+            str[i] = toupper(str[i]);
+        }
+        printf("String em maiúsculas: %s\n", str);
+    } else if (opcao == 2) {
+        for (int i = 0; str[i] != '\0'; i++) {
+            str[i] = tolower(str[i]);
+        }
+        printf("String em minúsculas: %s\n", str);
+    } else {
+        printf("Opção inválida.\n");
+    }
+
+    
+}

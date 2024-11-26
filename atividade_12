@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+char* minha_strstr(const char* str, const char* substr) {
+    if (*substr == '\0') {
+        return (char*)str;  // Se a substring estiver vazia, retorna o ponteiro para a string original
+    }
+
+    for (; *str != '\0'; str++) {
+        const char* s = str;
+        const char* sub = substr;
+
+        // Compara a substring com a parte da string
+        while (*s != '\0' && *sub != '\0' && *s == *sub) {
+            s++;
+            sub++;
+        }
+
+        // Se a substring for completamente encontrada, retorna o ponteiro para o início da ocorrência
+        if (*sub == '\0') {
+            return (char*)str;
+        }
+    }
+
+    return NULL;  // Se a substring não for encontrada, retorna NULL
+}
+
+int main() {
+    char str[100], substr[100];
+    
+    printf("Digite a string: ");
+    fgets(str, sizeof(str), stdin);
+    
+    printf("Digite a substring a ser procurada: ");
+    fgets(substr, sizeof(substr), stdin);
+    
+    // Remover o '\n' no final de fgets
+    str[strcspn(str, "\n")] = '\0';
+    substr[strcspn(substr, "\n")] = '\0';
+
+    char* resultado = minha_strstr(str, substr);
+    
+    if (resultado != NULL) {
+        printf("A substring foi encontrada em: %s\n", resultado);
+    } else {
+        printf("A substring não foi encontrada.\n");
+    }
+
+    
+}

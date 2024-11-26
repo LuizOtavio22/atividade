@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char str[100];
+    int i, j;
+
+    printf("Digite uma string: ");
+    fgets(str, sizeof(str), stdin);
+    str[strcspn(str, "\n")] = '\0';
+
+    i = 0;
+    while (isspace(str[i])) {
+        i++;
+    }
+
+    j = strlen(str) - 1;
+    while (isspace(str[j])) {
+        j--;
+    }
+
+    for (int k = 0; i <= j; i++, k++) {
+        str[k] = str[i];
+    }
+
+    str[j - i + 1] = '\0';
+
+    printf("String sem espaços no início e no final: '%s'\n", str);
+
+    
+}

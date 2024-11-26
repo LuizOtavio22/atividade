@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    char str1[100], str2[100];
+
+    printf("Digite a primeira string: ");
+    fgets(str1, sizeof(str1), stdin);
+
+    printf("Digite a segunda string: ");
+    fgets(str2, sizeof(str2), stdin);
+
+    printf("Primeira String: %s", str1);
+    printf("Segunda String: %s", str2);
+
+}
+
+

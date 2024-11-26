@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    char str[100], charToReplace, charReplacement;
+    int i;
+
+    printf("Digite uma string: ");
+    fgets(str, sizeof(str), stdin);
+    
+    printf("Digite o caractere a ser substituído: ");
+    scanf("%c", &charToReplace);
+    getchar();  // Para consumir o caractere de nova linha deixado pelo scanf
+
+    printf("Digite o caractere substituto: ");
+    scanf("%c", &charReplacement);
+
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] == charToReplace) {
+            str[i] = charReplacement;
+        }
+    }
+
+    printf("String modificada: %s\n", str);
+
+    
+}
